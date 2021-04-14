@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  places_db:
+    image: postgres
+    container_name: places_db
+    restart: always
+    env_file:
+      - database.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
