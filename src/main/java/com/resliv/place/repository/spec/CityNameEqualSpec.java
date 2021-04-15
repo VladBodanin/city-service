@@ -1,7 +1,6 @@
 package com.resliv.place.repository.spec;
 
 import com.resliv.place.entity.CityEntity;
-import com.resliv.place.entity.CountryEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 

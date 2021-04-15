@@ -10,7 +10,7 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 public class StartCommand extends AbstractCommand {
 
   private static final String START_COMMAND_NAME = "start";
-  private static final String START_COMMAND_DESCRIPTION = "start using bot\n";
+  private static final String START_COMMAND_DESCRIPTION = "start command\n";
   private static final String START_COMMAND_TEXT =
       "Hi, you started communication with the PlaceBot. More information you can get by /help command\n";
 

@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("/search")
 @RestController
-public class CitySearchController {
+public class PlaceSearchController {
 
   private final PlaceSearchService placeSearchService;
 

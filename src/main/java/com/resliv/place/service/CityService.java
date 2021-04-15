@@ -52,7 +52,7 @@ public class CityService {
     CityEntity city = getByIdOrThrow(cityId);
     if (!Objects.equals(countryId, city.getCountry().getId())) {
       throw new PlaceServiceException(
-          "You try to update city of another country", ErrorReason.INVALID_COUNTRY);
+          "You are trying to update a city in another country", ErrorReason.INVALID_COUNTRY);
     }
     validateCityUniqueness(countryId, cityDto.getName(), Set.of(city.getName()));
     city.setDescription(cityDto.getDescription());
@@ -66,7 +66,7 @@ public class CityService {
     CityEntity city = getByIdOrThrow(id);
     if (!Objects.equals(countryId, city.getCountry().getId())) {
       throw new PlaceServiceException(
-          "You try to delete city of another country", ErrorReason.INVALID_COUNTRY);
+          "You are trying to delete a city in another country", ErrorReason.INVALID_COUNTRY);
     }
     cityRepository.delete(city);
   }

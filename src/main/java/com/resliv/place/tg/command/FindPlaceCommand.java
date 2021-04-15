@@ -17,7 +17,7 @@ public class FindPlaceCommand extends AbstractCommand {
 
   private static final String FIND_PLACE_COMMAND_NAME = "find";
   private static final String FIND_PLACE_COMMAND_DESCRIPTION =
-      "Find place by city name and country name. Example: /find Paris Belarus\n";
+      "Find place command\n";
   private static final String AGRS_ERROR =
       "Error: 'find' command expects one or two args. First arg: <City>; Second optional arg: <Country>\n";
 

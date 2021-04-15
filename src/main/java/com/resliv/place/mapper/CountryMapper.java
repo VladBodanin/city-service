@@ -5,7 +5,6 @@ import com.resliv.place.dto.CreateCountryDto;
 import com.resliv.place.entity.CountryEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
-import org.springframework.stereotype.Component;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CountryMapper {
