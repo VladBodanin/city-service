@@ -12,7 +12,7 @@ public class StartCommand extends AbstractCommand {
   private static final String START_COMMAND_NAME = "start";
   private static final String START_COMMAND_DESCRIPTION = "start using bot\n";
   private static final String START_COMMAND_TEXT =
-      "Hi, you started communication with the PlaceBot. More information you can get by /help command";
+      "Hi, you started communication with the PlaceBot. More information you can get by /help command\n";
 
   public StartCommand() {
     super(START_COMMAND_NAME, START_COMMAND_DESCRIPTION);

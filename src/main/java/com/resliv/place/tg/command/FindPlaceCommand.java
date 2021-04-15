@@ -2,7 +2,7 @@ package com.resliv.place.tg.command;
 
 import com.resliv.place.dto.CityDto;
 import com.resliv.place.exception.PlaceBotException;
-import com.resliv.place.service.CitySearchService;
+import com.resliv.place.service.PlaceSearchService;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Chat;
@@ -19,13 +19,13 @@ public class FindPlaceCommand extends AbstractCommand {
   private static final String FIND_PLACE_COMMAND_DESCRIPTION =
       "Find place by city name and country name. Example: /find Paris Belarus\n";
   private static final String AGRS_ERROR =
-      "Error: 'find' command expects one or two args. First arg: <City>; Second optional arg: <Country>";
+      "Error: 'find' command expects one or two args. First arg: <City>; Second optional arg: <Country>\n";
 
-  private final CitySearchService citySearchService;
+  private final PlaceSearchService placeSearchService;
 
-  public FindPlaceCommand(CitySearchService citySearchService) {
+  public FindPlaceCommand(PlaceSearchService placeSearchService) {
     super(FIND_PLACE_COMMAND_NAME, FIND_PLACE_COMMAND_DESCRIPTION);
-    this.citySearchService = citySearchService;
+    this.placeSearchService = placeSearchService;
   }
 
   @Override
@@ -35,7 +35,7 @@ public class FindPlaceCommand extends AbstractCommand {
     try {
       validateParams(strings);
       List<CityDto> places =
-          citySearchService.search(
+          placeSearchService.search(
               Optional.of(strings[0]), Optional.ofNullable(strings.length > 1 ? strings[1] : null));
       message.setText(placeDtosToText(places));
     } catch (Exception e) {

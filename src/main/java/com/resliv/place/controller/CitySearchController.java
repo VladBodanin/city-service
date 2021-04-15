@@ -1,7 +1,7 @@
 package com.resliv.place.controller;
 
 import com.resliv.place.dto.CityDto;
-import com.resliv.place.service.CitySearchService;
+import com.resliv.place.service.PlaceSearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +17,12 @@ import java.util.Optional;
 @RestController
 public class CitySearchController {
 
-  private final CitySearchService citySearchService;
+  private final PlaceSearchService placeSearchService;
 
   @GetMapping
   public ResponseEntity<List<CityDto>> getPlace(
-      @RequestParam(required = false) Optional<String> city,
-      @RequestParam(required = false) Optional<String> country) {
-    return ResponseEntity.ok(citySearchService.search(city, country));
+      @RequestParam(required = false) Optional<String> cityName,
+      @RequestParam(required = false) Optional<String> countryName) {
+    return ResponseEntity.ok(placeSearchService.search(cityName, countryName));
   }
 }

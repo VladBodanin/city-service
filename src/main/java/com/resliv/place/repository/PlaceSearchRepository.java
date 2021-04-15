@@ -15,7 +15,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Repository
-public class CitySearchRepository {
+public class PlaceSearchRepository {
 
   private final EntityManager entityManager;
 

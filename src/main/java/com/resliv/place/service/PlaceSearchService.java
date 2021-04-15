@@ -3,7 +3,7 @@ package com.resliv.place.service;
 import com.resliv.place.dto.CityDto;
 import com.resliv.place.entity.CityEntity;
 import com.resliv.place.mapper.CityMapper;
-import com.resliv.place.repository.CitySearchRepository;
+import com.resliv.place.repository.PlaceSearchRepository;
 import com.resliv.place.repository.spec.CityNameEqualSpec;
 import com.resliv.place.repository.spec.CountryNameEqualSpec;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +18,10 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class CitySearchService {
+public class PlaceSearchService {
 
   private final CityMapper cityMapper;
-  private final CitySearchRepository searchRepository;
+  private final PlaceSearchRepository searchRepository;
 
   public List<CityDto> search(Optional<String> city, Optional<String> country) {
     Set<Specification<CityEntity>> specifications = new HashSet<>();

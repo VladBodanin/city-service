@@ -4,12 +4,12 @@ import com.resliv.place.dto.CityDto;
 import com.resliv.place.dto.CountryDto;
 import com.resliv.place.dto.CreateCountryDto;
 import com.resliv.place.dto.CreateCityDto;
+import com.resliv.place.dto.UpdateCityDto;
 import com.resliv.place.service.CityService;
 import com.resliv.place.service.CountryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,13 +19,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.math.BigInteger;
 import java.util.List;
 
 @RequiredArgsConstructor
 @RequestMapping("/countries")
 @RestController
-@Validated
 public class CountryController {
 
   private final CountryService countryService;
@@ -42,14 +42,15 @@ public class CountryController {
   }
 
   @PostMapping
-  public ResponseEntity<CountryDto> createCountry(@RequestBody CreateCountryDto createCountryDto) {
+  public ResponseEntity<CountryDto> createCountry(
+      @Valid @RequestBody CreateCountryDto createCountryDto) {
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(countryService.createCountry(createCountryDto));
   }
 
   @PutMapping("/{id}")
   public ResponseEntity<CountryDto> updatedCountry(
-      @PathVariable BigInteger id, @RequestBody CountryDto countryDto) {
+      @PathVariable BigInteger id, @Valid @RequestBody UpdateCityDto countryDto) {
 
     return ResponseEntity.ok(countryService.updateCountry(id, countryDto));
   }
@@ -63,7 +64,7 @@ public class CountryController {
 
   @PostMapping("/{countryId}/cities")
   public ResponseEntity<CityDto> createCity(
-      @PathVariable BigInteger countryId, @RequestBody CreateCityDto createCityDto) {
+      @PathVariable BigInteger countryId, @Valid @RequestBody CreateCityDto createCityDto) {
 
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(cityService.createCity(countryId, createCityDto));
@@ -81,7 +82,7 @@ public class CountryController {
   public ResponseEntity<CityDto> updateCity(
       @PathVariable BigInteger countryId,
       @PathVariable BigInteger cityId,
-      @RequestBody CityDto cityDto) {
+      @Valid @RequestBody UpdateCityDto cityDto) {
 
     return ResponseEntity.ok(cityService.updateCity(countryId, cityId, cityDto));
   }

@@ -2,6 +2,7 @@ package com.resliv.place.service;
 
 import com.resliv.place.dto.CountryDto;
 import com.resliv.place.dto.CreateCountryDto;
+import com.resliv.place.dto.UpdateCityDto;
 import com.resliv.place.entity.CountryEntity;
 import com.resliv.place.exception.EntityAlreadyPresentException;
 import com.resliv.place.exception.NotFoundException;
@@ -43,7 +44,7 @@ public class CountryService {
   }
 
   @Transactional
-  public CountryDto updateCountry(BigInteger id, CountryDto countryDto) {
+  public CountryDto updateCountry(BigInteger id, UpdateCityDto countryDto) {
     CountryEntity countryToUpdate = getByIdOrThrow(id);
     validateCountryUniqueness(countryDto.getName());
     countryToUpdate.setName(countryDto.getName());
