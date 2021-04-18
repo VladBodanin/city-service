@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.resliv</groupId>
-    <artifactId>city-service</artifactId>
+    <artifactId>place-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot</name>
-    <description>city-service</description>
+    <name>place-service</name>
+    <description>place-service</description>
     <properties>
         <java.version>11</java.version>
         <org.projectlombok.version>1.18.16</org.projectlombok.version>

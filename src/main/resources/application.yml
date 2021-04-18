@@ -1,9 +1,9 @@
 server:
-  port: ${PORT:8099}
+  port: 8099
 
 spring:
   datasource:
-    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:places}?currentSchema=${POSTGRES_DEFAULT_SCHEMA:places}
+    url: jdbc:postgresql://localhost:5432/places?currentSchema=places
     username: places
     password: places
     hikari:
