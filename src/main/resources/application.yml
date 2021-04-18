@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8099}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:places}?currentSchema=${POSTGRES_DEFAULT_SCHEMA:places}
+    username: places
+    password: places
+    hikari:
+      connection-timeout: 10000
+      maximum-pool-size: 24
+    initialization-mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+flyway:
+  enabled: true
+
+telegram:
+  bot:
+    token: '1660175001:AAH87YKB7yq8rQQgAIS1syokB3MFHGc7SfM'
+    name: Place0Bot
