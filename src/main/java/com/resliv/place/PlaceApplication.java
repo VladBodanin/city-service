@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(scanBasePackages = "com.resliv.place.*")
-public class CityApplication {
+public class PlaceApplication {
   public static void main(String[] args) {
-    SpringApplication.run(CityApplication.class, args);
+    SpringApplication.run(PlaceApplication.class, args);
   }
 }

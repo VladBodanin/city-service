@@ -38,7 +38,7 @@ public class FindPlaceCommand extends AbstractCommand {
           placeSearchService.search(
               Optional.of(strings[0]), Optional.ofNullable(strings.length > 1 ? strings[1] : null));
       message.setText(placeDtosToText(places));
-    } catch (Exception e) {
+    } catch (PlaceBotException e) {
       message.setText(e.getMessage());
     }
     execute(absSender, message, user);

@@ -35,7 +35,7 @@ public class BotConfig {
       botsApi.registerBot(placeBot);
 
     } catch (TelegramApiException e) {
-      e.printStackTrace();
+      log.error(e.getMessage());
     }
     return botsApi;
   }
